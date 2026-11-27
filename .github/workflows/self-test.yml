@@ -29,7 +29,8 @@ jobs:
           SEKISHO_SELF: 'true'
         run: |
           python -m pip install --quiet "pytest==9.2.0" "actionlint-py==1.7.12.25" "zizmor==1.33.1"
-          python -m pytest -q tests
+          # 見本の試験は、アプリと同じく SEKISHO_SELF の無い所で走らせる
+          env -u SEKISHO_SELF python -m pytest -q tests
           if [ -n "$BASE_SHA" ] && git cat-file -e "$BASE_SHA^{commit}" 2>/dev/null; then
             mkdir -p /tmp/base && git archive "$BASE_SHA" scripts actionlint.yaml zizmor.yml | tar -x -C /tmp/base
             JUDGE=/tmp/base
