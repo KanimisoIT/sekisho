@@ -1,0 +1,8 @@
+# 関所が使う zizmor の設定。アプリのリポジトリの設定ではなく、いつもこれを使う(アプリ側で弱められないように)。
+# 関所の本体(KanimisoIT/sekisho)だけは枝の名で呼んでよい。本体の main はルールセットと自己試験で守る。
+rules:
+  unpinned-uses:
+    config:
+      policies:
+        "KanimisoIT/*": ref-pin
+        "*": hash-pin

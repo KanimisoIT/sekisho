@@ -1,0 +1,3 @@
+{
+  "guard_exempt": ["scripts/*", "tests/spec/*"]
+}

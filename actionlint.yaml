@@ -1,0 +1,3 @@
+# 関所が使う actionlint の設定(アプリ側の設定は使わない)。
+self-hosted-runner:
+  labels: []

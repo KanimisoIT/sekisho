@@ -1,0 +1,20 @@
+# 各アプリのリポジトリに .github/workflows/sekisho-call.yml として置く(置くのは setup の台本)。
+# AI 用の鍵には手順の書き換えの権限が無いので、AI はこのファイルを変えられない。
+# 本体は main で呼ぶ。本体の main はルールセットと自己試験(取り込み先の台本で判定)で守る。
+# paths を書かない(飛ばされた検査は必須の検査を永久に待たせる)。
+name: sekisho-call
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  sekisho:
+    name: sekisho
+    uses: KanimisoIT/sekisho/.github/workflows/sekisho.yml@main
+    with:
+      sekisho_ref: main
